@@ -47,12 +47,12 @@ export async function GET(request: Request){
             })
         }
     } catch (error) {
-        console.log("failed to find user", error);
+        console.log("internal server error", error);
         return Response.json({
             success:false,
-            message:"failed to find user"
+            message:"internal server error"
         },{
-            status:501
+            status:500
         })
     }
 
