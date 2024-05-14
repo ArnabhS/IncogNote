@@ -1,32 +1,30 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
- 
+import { NextRequest, NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+export { default } from 'next-auth/middleware';
 
-export function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname
-
-  const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
-
-  const token = request.cookies.get('token')?.value || ''
-
-  if(isPublicPath && token) {
-    return NextResponse.redirect(new URL('/', request.nextUrl))
-  }
-
-  if (!isPublicPath && !token) {
-    return NextResponse.redirect(new URL('/login', request.nextUrl))
-  }
-    
-}
-
- 
-// See "Matching Paths" below to learn more
 export const config = {
-  matcher: [
-    '/',
-    '/profile',
-    '/login',
-    '/signup',
-    '/verifyemail'
-  ]
+  matcher: ['/dashboard/:path*', '/sign-in', '/sign-up', '/', '/verify/:path*'],
+};
+
+export async function middleware(request: NextRequest) {
+  const token = await getToken({ req: request });
+  const url = request.nextUrl;
+
+  // Redirect to dashboard if the user is already authenticated
+  // and trying to access sign-in, sign-up, or home page
+  if (
+    token &&
+    (url.pathname.startsWith('/sign-in') ||
+      url.pathname.startsWith('/sign-up') ||
+      url.pathname.startsWith('/verify') ||
+      url.pathname === '/')
+  ) {
+    return NextResponse.redirect(new URL('/dashboard', request.url));
+  }
+
+  if (!token && url.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/sign-in', request.url));
+  }
+
+  return NextResponse.next();
 }
