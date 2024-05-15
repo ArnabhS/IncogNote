@@ -1,4 +1,4 @@
-Anonymous Messaging Website README
+IncoNote README
 
 Welcome to our anonymous messaging website! This platform allows users to send messages anonymously to each other. Below, you'll find all the necessary information to understand, set up, and contribute to our project.
 
