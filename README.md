@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+IncogNote Anonymous Messaging Website README 📝
 
-## Getting Started
+Welcome to IncogNote, our anonymous messaging website! This platform allows users to send messages anonymously to each other. Below, you'll find all the necessary information to understand, set up, and contribute to our project.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Technologies Used: 🛠️
+Next.js: Next.js is a React framework that enables functionality like server-side rendering and generating static websites for React based web applications.
+Zod: Zod is a TypeScript-first schema declaration and validation library. It helps ensure data integrity and type safety.
+TypeScript: TypeScript is a strongly typed superset of JavaScript that helps catch errors early in the development process and improve code quality.
+MongoDB: MongoDB is a NoSQL database used for storing and managing our application's data.
+SCSS: SCSS is a CSS preprocessor that enables us to write more maintainable and modular CSS code.
+Tailwind CSS: Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs.
+Prerequisites: 🧩
+Node.js and npm installed on your machine.
+MongoDB installed and running.
+Setup Instructions: 🚀
+Clone the repository from [GitHub Repository URL].
+Navigate to the project directory.
+Run npm install to install the project dependencies.
+Create a .env file in the root directory and provide the necessary environment variables. Example:
+makefile
+Copy code
+MONGODB_URI=your_mongodb_uri
+Run npm run dev to start the development server.
+Access the application in your browser at http://localhost:3000.
+Project Structure: 📁
+graphql
+Copy code
+├── pages/                  # Next.js pages
+│   ├── api/                # API routes
+│   │   └── messages.ts     # API route for handling messages
+│   ├── _app.tsx            # Next.js app component
+│   └── index.tsx           # Homepage component
+├── components/             # React components
+│   ├── Layout.tsx          # Layout component
+│   └── MessageForm.tsx     # Component for sending messages
+├── lib/                    # Utility functions and modules
+│   └── database.ts         # MongoDB connection and models
+├── styles/                 # SCSS and Tailwind CSS styles
+│   ├── globals.scss        # Global styles
+│   └── tailwind.config.js  # Tailwind CSS configuration file
+├── .env.example            # Example environment variables
+└── README.md               # Project README file
