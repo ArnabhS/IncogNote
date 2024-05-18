@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button';
 import {
   Form,
-  FormControl,
   FormField,
   FormItem,
   FormLabel,
@@ -69,9 +68,7 @@ export default function VerifyAccount() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Verification Code</FormLabel>
-                  <FormControl>
-                  <Input placeholder='code' {...field} />
-                  </FormControl>
+                  <Input {...field} />
                   <FormMessage />
                 </FormItem>
               )}
