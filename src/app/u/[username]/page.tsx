@@ -1,9 +1,9 @@
 import React from 'react'
 
-const message = () => {
+const page = () => {
   return (
-    <div> message</div>
+    <div>page</div>
   )
 }
 
-export default message
+export default page
