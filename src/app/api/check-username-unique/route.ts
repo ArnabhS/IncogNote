@@ -47,7 +47,7 @@ export async function GET(request: Request) {
       else{
         return Response.json({
             success:true,
-            message:"Username is availaible"
+            message:"Username is unique"
         },{
             status:201
         })
